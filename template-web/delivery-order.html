@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Bango Express">
+    <link href="assets/images/favicon/favicon.png" rel="icon">
+    <title>Bango Express</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/libraries.css" />
+    <link rel="stylesheet" href="assets/css/jquery.steps.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+<!-- <div class="preloader">
+    <div class="loading"><span></span><span></span><span></span><span></span></div>
+</div> -->
+<!-- /.preloader -->
+<div class="wrapper">
+    <!-- =========================
+        Header
+    =========================== -->
+    <header id="header" class="header header-white">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo/logo-white.svg" class="logo-light" alt="Bango Express">
+                    <img src="assets/images/logo/logo-new.svg" class="logo-dark" alt="Bango Express">
+                </a>
+                <button class="navbar-toggler" type="button">
+                    <span class="menu-lines"><span></span></span>
+                </button>
+                <div class="header__top-right d-none d-lg-block">
+                </div><!-- /.header-top-right -->
+                <div class="collapse navbar-collapse" id="mainNavigation">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav__item">
+                            <a href="index.html" class="nav__item-link">Home</a>
+                        </li><!-- /.nav-item -->
+                        <li class="nav__item">
+                            <a href="service.html" class="nav__item-link">Service</a>
+                        </li><!-- /.nav-item -->
+                        <li class="nav__item">
+                            <a href="tracking.html" class="nav__item-link">Track Order</a>
+                        </li><!-- /.nav-item -->
+                        <li class="nav__item">
+                            <a href="delivery-order.html" class="nav__item-link active">Delivery Order</a>
+                        </li><!-- /.nav-item -->
+                        <li class="nav__item">
+                            <a href="contact.html" class="nav__item-link">Contact Us</a>
+                        </li><!-- /.nav-item -->
+                    </ul><!-- /.navbar-nav -->
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container -->
+        </nav><!-- /.navbar -->
+    </header>
+    <!-- /.Header -->
+
+    <!-- ========================
+           page title
+        =========================== -->
+    <section id="page-title" class="page-title bg-overlay">
+        <div class="bg-img"><img src="assets/images/page-titles/bg-title.jpg" alt="background"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Delivery Order</li>
+                        </ol>
+                    </nav>
+                    <h1 class="pagetitle__heading">Delivery Order</h1>
+                </div><!-- /.col-lg-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.page-title -->
+
+    <!-- ======================
+           Delivery Order
+        ========================= -->
+    <section id="trackShipmeent" class="track-shipmeent">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-md-10 col-lg-8">
+                    <form action="" class="b-wizard" id="formRequestDelivery">
+                        <h3>
+                            <i class="fa fa-send"></i>
+                            <span class="b-wizard__heading">Pengirim</span>
+                        </h3>
+                        <fieldset>
+                            <h5 class="form__title">Data Pengirim</h5>
+                            <div class="divider__line divider__theme divider__sm mb-30"></div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Nama Pengirim</label>
+                                        <input name="nama_pengirim" id="nama_pengirim" type="text" class="form-control" placeholder="Nama Pengirim">
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Nomor Telepon</label>
+                                        <input name="nomor_telepon_pengirim" id="nomor_telepon_pengirim" type="text" class="form-control" placeholder="Nomor Telepon">
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="maps-form-layout">
+                                        <input id="pengirim-pac-input" class="controls" type="text" placeholder="Cari titik lokasi" />
+                                        <div id="mapPengirim" class="maps-form"></div>
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Alamat Pengirim</label>
+                                        <textarea name="alamat_pengirim" class="form-control" placeholder="Alamat Pengirim"></textarea>
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Provinsi</label>
+                                        <select name="provinsi_pengirim" id="provinsi_pengirim" class="form-control">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Kota/Kabupaten</label>
+                                        <select name="kabupaten_pengirim" id="kabupaten_pengirim" class="form-control">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Kecamatan</label>
+                                        <select name="kecamatan_pengirim" id="kecamatan_pengirim" class="form-control">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Kelurahan</label>
+                                        <select name="kelurahan_pengirim" id="kelurahan_pengirim" class="form-control">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                            </div><!-- /.row -->
+                        </fieldset>
+                        <h3>
+                            <i class="fa fa-address-book"></i>
+                            <span class="b-wizard__heading">Penerima</span>
+                        </h3>
+                        <fieldset>
+                            <h5 class="form__title">Data Penerima</h5>
+                            <div class="divider__line divider__theme divider__sm mb-30"></div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Nama Penerima</label>
+                                        <input name="nama_penerima" id="nama_penerima" type="text" class="form-control" placeholder="Nama Penerima">
+                                    </div>
+                                </div><!--/.col-lg-12 -->
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Nomor Telepon</label>
+                                        <input name="nomor_telepon_penerima" id="nomor_telepon_penerima" type="text" class="form-control" placeholder="Nomor Telepon">
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="maps-form-layout">
+                                        <input id="penerima-pac-input" class="controls" type="text" placeholder="Cari titik lokasi" />
+                                        <div id="mapPenerima" class="maps-form"></div>
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Alamat Pengirim</label>
+                                        <textarea name="alamat_penerima" class="form-control" placeholder="Alamat Penerima"></textarea>
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Provinsi</label>
+                                        <select name="provinsi_penerima" id="provinsi_penerima" class="form-control">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Kota/Kabupaten</label>
+                                        <select name="kabupaten_penerima" id="kabupaten_penerima" class="form-control">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Kecamatan</label>
+                                        <select name="kecamatan_penerima" id="kecamatan_penerima" class="form-control">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Kelurahan</label>
+                                        <select name="kelurahan_penerima" id="kelurahan_penerima" class="form-control">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                            </div>
+                        </fieldset>
+                        <h3>
+                            <i class="fa fa-archive"></i>
+                            <span class="b-wizard__heading">Barang</span>
+                        </h3>
+                        <fieldset>
+                            <h5 class="form__title">Data Barang</h5>
+                            <div class="divider__line divider__theme divider__sm mb-30"></div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Jenis Barang</label>
+                                        <select name="jenis_barang" id="jenis_barang" class="form-control">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Kategori Barang</label>
+                                        <select name="kategori_barang" id="kategori_barang" class="form-control">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Jumlah Barang</label>
+                                        <input name="jumlah_barang" id="jumlah_barang" type="text" class="form-control" placeholder="Masukan Jumlah Barang">
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Berat</label>
+                                        <div class="input-group">
+                                            <input name="berat" id="berat" type="text" class="form-control" placeholder="0">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">kg</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Luas Volume</label>
+                                        <div class="input-group">
+                                            <input name="luas_volume" id="luas_volume" type="text" class="form-control" placeholder="0">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">m</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Catatan</label>
+                                        <textarea name="alamat_pengirim" class="form-control" placeholder="Tulis catatan disini"></textarea>
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                            </div>
+                        </fieldset>
+                        <h3>
+                            <i class="fa fa-credit-card"></i>
+                            <span class="b-wizard__heading">Pembayaran</span>
+                        </h3>
+                        <fieldset>
+                            <h5 class="form__title">Pembayaran</h5>
+                            <div class="divider__line divider__theme divider__sm mb-30"></div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Jenis Pengiriman</label>
+                                        <select name="jenis_pengiriman" id="jenis_pengiriman" class="form-control">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <label class="form-label">Pilih Pembayaran</label>
+                                    <ul class="form-payment">
+                                        <li>
+                                            <input type='radio' value='1' name='radio' id='payment1'/>
+                                            <label for='payment1'>
+                                                <span class="form-payment-logo">
+                                                    <img src="https://www.freepnglogos.com/uploads/logo-bca-png/bca-mainan-jebo-6.png" alt="BCA">
+                                                </span>
+                                                <span>BCA Virtual Account</span>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type='radio' value='2' name='radio'  id='payment2'/>
+                                            <label for='payment2'>
+                                                <span class="form-payment-logo">
+                                                    <img src="https://www.worldofghibli.id/images/kumpulan-gambar-logo-gopay/gopay-logo-png.png" alt="Gopay">
+                                                </span>
+                                                <span>Gopay</span>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type='radio' value='3' name='radio'  id='payment3'/>
+                                            <label for='payment3'>
+                                                <span class="form-payment-logo">
+                                                    <img src="https://i0.wp.com/www.seosatu.com/wp-content/uploads/2020/01/visa-mastercard.png" alt="Kartu Kredit">
+                                                </span>
+                                                <span>Kartu Kredit</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12 mt-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Total Bayar</label>
+                                        <div class="total-pay">Rp 48.000</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div><!-- /.col-lg-8 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.Track Shipment -->
+
+    <!-- ========================
+      Footer
+    ========================== -->
+    <footer id="footer" class="footer footer-1">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-4 footer__widget footer__widget-about">
+                        <div class="footer__widget-content footer-logo">
+                            <img src="assets/images/logo/logo-white.svg" alt="logo" class="mb-30">
+                        </div>
+                    </div><!-- /.col-lg-4 -->
+                    <div class="col-12 col-sm-6 col-md-9 col-lg-6 footer__widget footer__widget-nav">
+                        <h6 class="footer__widget-title">Our Office</h6>
+                        <div class="footer__widget-content">
+                            <p>Kuningan City Mall, 6-7th Floor<br>
+                                Jl. Prof. Dr. Satrio Kav 18, Karet Kuningan, Setiabudi<br>
+                                DKI Jakarta 12940<br>
+                                Indonesia</p>
+                            <p>
+                                021-50603333<br>
+                                marketing@anteraja.id
+                            </p>
+                        </div><!-- /.footer-widget-content -->
+                    </div><!-- /.col-lg-2 -->
+                    <div class="col-12 col-sm-6 col-md-3 col-lg-2 footer__widget footer__widget-nav">
+                        <h6 class="footer__widget-title">Quick Links</h6>
+                        <div class="footer__widget-content">
+                            <nav>
+                                <ul class="list-unstyled">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="service.html">Service</a></li>
+                                    <li><a href="tracking.html">Track Order</a></li>
+                                    <li><a href="delivery-order.html">Delivery Order</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div><!-- /.footer-widget-content -->
+                    </div><!-- /.col-lg-2 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.footer-top -->
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-sm-12 col-md-9 col-lg-9">
+                        <div class="footer__copyright">
+                            <span>&copy; 2021 Bango Express</span>
+                        </div><!-- /.Footer-copyright -->
+                    </div><!-- /.col-lg-6 -->
+                    <div class="col-sm-12 col-md-3 col-lg-3 d-flex align-items-center">
+                        <div class="social__icons justify-content-end w-100">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div><!-- /.social-icons -->
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+            </div><!-- /.Footer-bottom -->
+        </div><!-- /.container -->
+    </footer><!-- /.Footer -->
+    <button id="scrollTopBtn"><i class="fa fa-long-arrow-up"></i></button>
+
+</div><!-- /.wrapper -->
+
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/jquery.steps.js"></script>
+<script src="assets/js/jquery.validate.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwKjP-500lfTc-2Jio-IWIf-6w3yDEg2I&callback=initMap&libraries=places" async defer></script>
+<script src="assets/js/google-map.js"></script>
+<script src="assets/js/custom.js"></script>
+<script>
+    function initMap() {
+        // The location of defaultLocation
+        const defaultLocation = { lat: -6.242130, lng: 106.801811 };
+        const mapOptions = {
+            zoom: 14, center: defaultLocation,
+            fullscreenControl: false,
+            mapTypeControl: false,
+            streetViewControl: false,
+            styles: [
+                {
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#f5f5f5"
+                        }
+                    ]
+                },
+                {
+                    "elementType": "labels.icon",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#616161"
+                        }
+                    ]
+                },
+                {
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                        {
+                            "color": "#f5f5f5"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.land_parcel",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#bdbdbd"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#eeeeee"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#757575"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#e5e5e5"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#9e9e9e"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#ffffff"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.arterial",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#757575"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#dadada"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#616161"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.local",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#9e9e9e"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit.line",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#e5e5e5"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit.station",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#eeeeee"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#c9c9c9"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#9e9e9e"
+                        }
+                    ]
+                }
+            ]
+        };
+
+        const iconMaps = {
+            url: 'assets/icons/location.png',
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(25, 25),
+            scaledSize: new google.maps.Size(50, 50),
+        };
+
+        // Call Map
+        const mapPengirim = new google.maps.Map(document.getElementById('mapPengirim'), mapOptions);
+        const mapPenerima = new google.maps.Map(document.getElementById('mapPenerima'), mapOptions);
+        // The marker, positioned at defaultLocation
+        let marker = new google.maps.Marker({ position: defaultLocation, map: mapPengirim, icon: iconMaps });
+        let marker2 = new google.maps.Marker({ position: defaultLocation, map: mapPenerima, icon: iconMaps });
+
+        // Create the search box and link it to the UI element.
+        const inputMapPengirim = document.getElementById("pengirim-pac-input");
+        const searchBoxMapPengirim = new google.maps.places.SearchBox(inputMapPengirim);
+        const inputMapPenerima = document.getElementById("penerima-pac-input");
+        const searchBoxMapPenerima = new google.maps.places.SearchBox(inputMapPenerima);
+
+        mapPengirim.controls[google.maps.ControlPosition.TOP_LEFT].push(inputMapPengirim);
+        mapPenerima.controls[google.maps.ControlPosition.TOP_LEFT].push(inputMapPenerima);
+        // Bias the SearchBox results towards current map's viewport.
+        mapPengirim.addListener("bounds_changed", () => {
+            searchBoxMapPengirim.setBounds(mapPengirim.getBounds());
+        });
+        mapPenerima.addListener("bounds_changed", () => {
+            searchBoxMapPenerima.setBounds(mapPenerima.getBounds());
+        });
+
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBoxMapPengirim.addListener("places_changed", () => {
+            const places = searchBoxMapPengirim.getPlaces();
+
+            if (places.length == 0) {
+                return;
+            }
+
+            // For each place, get the icon, name and location.
+            const bounds = new google.maps.LatLngBounds();
+
+            places.forEach((place) => {
+                if (!place.geometry || !place.geometry.location) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+                if (place.geometry.viewport) {
+                    // Only geocodes have viewport.
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+            });
+            mapPengirim.fitBounds(bounds);
+        });
+
+        searchBoxMapPenerima.addListener("places_changed", () => {
+            const places2 = searchBoxMapPenerima.getPlaces();
+
+            if (places2.length == 0) {
+                return;
+            }
+
+            // For each place, get the icon, name and location.
+            const bounds2 = new google.maps.LatLngBounds();
+
+            places2.forEach((place) => {
+                if (!place.geometry || !place.geometry.location) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+                if (place.geometry.viewport) {
+                    // Only geocodes have viewport.
+                    bounds2.union(place.geometry.viewport);
+                } else {
+                    bounds2.extend(place.geometry.location);
+                }
+            });
+            mapPenerima.fitBounds(bounds2);
+        });
+
+        google.maps.event.addListener(mapPengirim, 'center_changed', function() {
+            // 0.1 seconds after the center of the map has changed,
+            // set back the marker position.
+            window.setTimeout(function() {
+                let center = mapPengirim.getCenter();
+                marker.setPosition(center);
+            }, 0);
+        });
+        google.maps.event.addListener(mapPenerima, 'center_changed', function() {
+            // 0.1 seconds after the center of the map has changed,
+            // set back the marker position.
+            window.setTimeout(function() {
+                let center = mapPenerima.getCenter();
+                marker2.setPosition(center);
+            }, 0);
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</body>
+
+</html>
